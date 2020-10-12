@@ -1,0 +1,11 @@
+input,button
+{
+    margin-top: 20px;
+}
+.button {
+    position: absolute;
+    top: 50%;
+}
+.wrapper {
+    text-align: center;
+}

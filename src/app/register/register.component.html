@@ -1,0 +1,114 @@
+<div style="background-image: url(../../assets/img/covid.jpg) ;width: 100%;height: 800px;padding-top: 50px;">
+    <div class="card"  style="width: 50%;height: auto;background-color: #80b3ff;margin-left: 25%;">
+        <button routerLink="/" style="margin-left: 45%;"  mat-fab color="primary">
+            <mat-icon class="icon">home</mat-icon>
+          </button>
+        <div class="card-body">
+            <div>
+                <mat-toolbar color="primary" >
+                    <span class="fill-remaining-space" > <p style="text-align: center;margin-left: 220px;">Inscription</p></span>
+                  </mat-toolbar><hr>
+            </div>
+            <div class="col-md-6" style="margin-left: 40px;">
+                <form name="form" [formGroup]="form">
+                    <div class="float-left col-md-10">
+                        <mat-form-field appearance="fill">
+                            <mat-label>CIN ou Username</mat-label>
+                            <mat-icon matSuffix>account_circle</mat-icon>
+                            <input matInput placeholder="CIN ou Username" type="text" name="id" autocomplete="off" [(ngModel)]="citoyen.id"
+                            formControlName="id" [ngClass]="{'is-invalid':form.get('id').touched && form.get('id').invalid}"  required />
+                            <div class="invalid-feedback">
+                                <div>CIN ou username est obligatoire</div>
+                            </div>
+                          </mat-form-field>
+    
+                        <mat-form-field appearance="fill">
+                            <mat-label>Nom</mat-label>
+                            <mat-icon matSuffix>person</mat-icon>
+                            <input matInput placeholder="Nom" type="text" name="nom" autocomplete="off" [(ngModel)]="citoyen.nom"
+                            formControlName="nom" [ngClass]="{'is-invalid':form.get('nom').touched && form.get('nom').invalid}" required />
+                            <div class="invalid-feedback">
+                                <div> Nom est obligatoire</div>
+                            </div>
+                          </mat-form-field>
+    
+    
+                        <mat-form-field appearance="fill">
+                            <mat-label>prénom</mat-label>
+                            <mat-icon matSuffix>person_outline</mat-icon>
+                            <input matInput placeholder="Prénom" type="text" name="prenom" autocomplete="off" [(ngModel)]="citoyen.prenom"
+                            formControlName="prenom" [ngClass]="{'is-invalid':form.get('prenom').touched && form.get('prenom').invalid}" required />
+                            <div class="invalid-feedback">
+                                <div> Prénom est obligatoire</div>
+                            </div>
+                          </mat-form-field>
+    
+    
+                    
+    
+                        <mat-form-field appearance="fill">
+                            <mat-label>Ville</mat-label>
+                            <mat-icon matSuffix>location_city</mat-icon>
+                            <input matInput placeholder="Ville" type="text" name="ville" autocomplete="off" [(ngModel)]="citoyen.ville"
+                            formControlName="ville" [ngClass]="{'is-invalid':form.get('ville').touched && form.get('ville').invalid}" required />
+                            <div class="invalid-feedback">
+                                <div>Ville est ogligatoire</div>
+                            </div>
+                          </mat-form-field>
+
+                    </div>
+                    <div class="float-right col-md-1" >
+                        <mat-form-field appearance="fill">
+                            <mat-label>Adresse</mat-label>
+                            <mat-icon matSuffix>edit_location</mat-icon>
+                            <input matInput placeholder="Adresse" type="text" name="adresse" autocomplete="off" [(ngModel)]="citoyen.adresse"
+                            formControlName="adresse" [ngClass]="{'is-invalid':form.get('adresse').touched && form.get('adresse').invalid}" required />
+                            <div class="invalid-feedback">
+                                <div>Adresse est obligatoire</div>
+                            </div>
+                          </mat-form-field>
+    
+    
+                        <mat-form-field appearance="fill">
+                            <mat-label>Téléphone</mat-label>
+                            <mat-icon matSuffix>local_phone</mat-icon>
+                            <input matInput placeholder="Numéro de téléphone" type="text" name="tel" autocomplete="off" [(ngModel)]="citoyen.tel"
+                            formControlName="tel" [ngClass]="{'is-invalid':form.get('tel').touched && form.get('tel').invalid}" required />
+                            <div class="invalid-feedback">
+                                <div>Numéro de téléphone est ogligatoire</div>
+                            </div>
+                          </mat-form-field>
+    
+    
+    
+                          <mat-form-field appearance="fill">
+                            <mat-label>Password</mat-label>
+                            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            <input matInput placeholder="Password"  type="password" name="password" placeholder="password" autocomplete="off" [(ngModel)]="citoyen.password"
+                            formControlName="password" [ngClass]="{'is-invalid':form.get('password').touched && form.get('password').invalid}" [type]="hide ? 'password' : 'text'" required />
+                            <div class="invalid-feedback">
+                                <div>Password est ogligatoire</div>
+                            </div>
+                          </mat-form-field>
+    
+                        <mat-form-field appearance="fill">
+                            <mat-label>Repassword</mat-label>
+                            <mat-icon matSuffix (click)="hide2 = !hide2">{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            <input matInput placeholder="Repassword"  type="password" name="repassword" autocomplete="off" [(ngModel)]="citoyen.repassword"
+                            formControlName="repassword" [ngClass]="{'is-invalid':form.get('repassword').touched && form.get('repassword').invalid}" [type]="hide2 ? 'repassword' : 'text'" required />
+                            <div class="invalid-feedback">
+                                <div>Repassword est obligatoire</div>
+                            </div>
+                          </mat-form-field>
+
+                    </div>
+                    <div class="wrapper" style="margin-left: 70%;">
+                        <button  mat-raised-button color="primary"   type="submit"   [disabled]="!form.valid" (click)="onSaveCitoyen()" style="text-align: center;"><strong>S'enregistrer</strong></button>
+                    </div>
+                  
+                 
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+p {
+    font-family: Lato;
+  }
+  
+  .example-card {
+    max-width: 300px;
+    margin: 4px
+  }
+  
+  .example-header-image {
+    background-image: url('C:\Users\hp\Desktop\CovidApp\src\assets\img\person.png');
+    background-size: cover;
+  }

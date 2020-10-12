@@ -1,0 +1,95 @@
+<div style="background-image: url(../../assets/img/covid.jpg) ;width: 100%;height: 750px;padding-top: 50px;">
+    <div class="card"  style="width: 50%;height: auto;background-color: #80b3ff;margin-left: 25%;">
+        <div class="card-header bg-light">
+            <div class="col-md-9 float-left">
+                <button routerLink="/AccueilM"    mat-fab color="primary">
+                <mat-icon class="icon">home</mat-icon>
+                </button>
+            </div>
+            <div class="form-group col-md-2 float-right" style="margin-top: 10px;">
+                <a mat-fab color="primary" type="submit"  style="margin-top:-10px;" class="btn"  routerLink="/logout" ><strong><i style="font-size: 20px;" class="fas fa-sign-out-alt"></i></strong></a>
+            </div>
+        </div>
+        <div class="card-body">
+                <div class="card-body">
+                    <form name="form1" [formGroup]="form1" >
+                        <mat-form-field>
+                            <mat-label>Ville</mat-label>
+                            <mat-icon matSuffix>location_city</mat-icon>
+                            <mat-select class="float-left col-md-6" name="ville1" placeholder="Ville" autocomplete="off" 
+                            formControlName="ville1" [ngClass]="{'is-invalid':form1.get('ville1').touched && form1.get('ville1').invalid}" [(ngModel)]="ville1" required>
+                              <mat-option *ngFor="let ville of villes" [value]="ville">{{ville}}</mat-option>
+                            </mat-select>
+                        </mat-form-field> 
+
+                            <div class="float-right col-md-6">
+                                    <button type="submit" mat-raised-button color="primary"  [disabled]="!form1.valid" (click)="recommanderGroup()"  style="text-align: center;margin-top: 10px;">Recommander</button>
+                           </div>
+                    </form>
+
+                    <br><br><br><br>
+                    <hr style="background-color: white;">
+
+                    <form name="form2" [formGroup]="form2" > 
+                        <div class="float-left col-md-6">
+                            <mat-form-field>
+                            <mat-label>Ville</mat-label>
+                            <mat-icon matSuffix>location_city</mat-icon>
+                            <mat-select class="float-left col-md-6" name="ville2" placeholder="Ville" autocomplete="off" 
+                            formControlName="ville2" [ngClass]="{'is-invalid':form2.get('ville2').touched && form2.get('ville2').invalid}" [(ngModel)]="ville2" required>
+                              <mat-option *ngFor="let ville of villes" [value]="ville">{{ville}}</mat-option>
+                            </mat-select>
+                        </mat-form-field> 
+                        </div>
+                        <div class="float-right col-md-6">
+                            <div class="wrapper">
+                                <button type="submit" mat-raised-button color="primary"  [disabled]="!form2.valid" (click)="avertirGroup()"  style="text-align: center;margin-top: 10px;width: 125px;">Avertir</button>
+                            </div>
+                       </div>
+                </form>
+                <br><br><br><br>
+                <hr style="background-color: white;">
+
+                <form name="form3" [formGroup]="form3" > 
+                        <mat-form-field style="margin-left: 15px;">
+                        <mat-label>Message</mat-label>
+                        <mat-icon matSuffix>mail</mat-icon>
+                        <textarea matInput  name="message" placeholder="Message" autocomplete="off" style="width: 100%;" 
+                            formControlName="message" [ngClass]="{'is-invalid':form3.get('message').touched && form3.get('message').invalid}" [(ngModel)]="message" required >
+                        </textarea>
+                        </mat-form-field>
+
+                        <br>
+                        <div>
+                        <div class="float-left col-md-1" >
+                            <mat-form-field>
+                                <mat-label>Ville</mat-label>
+                            <mat-icon matSuffix>location_city</mat-icon>
+                                <mat-select class="float-left col-md-6" name="ville3" placeholder="Ville" autocomplete="off" 
+                                formControlName="ville3" [ngClass]="{'is-invalid':form3.get('ville3').touched && form3.get('ville3').invalid}" [(ngModel)]="ville3" required>
+                                  <mat-option *ngFor="let ville of villes" [value]="ville">{{ville}}</mat-option>
+                                </mat-select>
+                            </mat-form-field> 
+                        </div>
+                        <div class="float-right col-md-7" >
+                            <mat-form-field>
+                            <mat-label>Type</mat-label>
+                            <input matInput type="text" name="type"  placeholder="Type de message" [(ngModel)]="type" autocomplete="off" 
+                            formControlName="type" [ngClass]="{'is-invalid':form3.get('type').touched && form3.get('type').invalid}" required>
+                            </mat-form-field>
+                        </div>
+                        </div>
+                        <br><br><br><br>
+                            <div style="margin-left: 10px;">
+                                <button type="submit" mat-raised-button color="primary" [disabled]="!form3.valid" (click)="notifierGroup()" ><strong>Envoyer</strong></button><br><br>
+                        </div>
+            </form>
+            <hr style="background-color: white;">
+
+
+
+                   
+           
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<div style="background-image: url(../../assets/img/covid.jpg) ;width: 100%;height: 700px;padding-top: 50px;">
+
+    <div class="card"  style="width: 50%;height: auto;background-color: #80b3ff;margin-left: 25%;">
+        <div class="card-body">
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="input-group">
+                       <div class="form-group col-md-3"> 
+                            <a [matBadge] = "num" matBadgePosition = "before" matBadgeColor = "primary" 
+                            class="btn" style="font-size: 35px;" routerLink="/notifications">
+                            <i class="fas fa-bell"></i></a>                   
+                         </div>
+                        <div class="form-group col-md-3">
+                            <button  mat-raised-button color="primary" type="submit" routerLink="/profil" style="margin-top:10px ;" ><strong>Mon profil</strong></button>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <button  mat-raised-button color="primary" type="submit" routerLink="/consignes"  style="margin-top:10px ;" ><strong>Consignes</strong></button>
+                        </div>
+                        <div class="form-group col-md-1 float-right">
+                            <a type="submit" class="btn" style="font-size: 35px;" routerLink="/logout" ><strong><i color="primary" class="fas fa-sign-out-alt"></i></strong></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div style="margin-top: 5%;margin-left: 43%;margin-bottom: 10%;">
+                    <mat-icon class="clickable" *ngIf="user.active" [ngClass]="user.active ? 'warn' : 'green'" (click)="click(user)"  style="font-size: 90px;">bluetooth_disabled</mat-icon>
+                    <mat-icon class="clickable" *ngIf="!user.active" [ngClass]="user.active ? 'warn' : 'green'" (click)="click(user)"  style="font-size: 90px;">bluetooth</mat-icon>
+                    <div  class="clickable" [ngClass]="user.active ? 'warn' : 'green'" (click)="click(user)"> <strong>{{user.active ? 'bluetooth désactivé':'bluetooth activé'}}</strong>
+                    </div>
+                </div>
+                <img src="../../assets/img/1 (4).png"  alt="virus" style="margin-left: 33%;margin-top: -5%;" width="200px" height="200px">
+                <mat-label><h4 style="text-align: center;">
+                    Bonjour <strong>{{prenom}} {{nom}}</strong><br>
+                    Veuillez activer le <strong>Bluetooth</strong>  pour se bénéficier de l'application</h4></mat-label>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<div style="background-image: url(../../assets/img/covid.jpg) ;width: 100%;height: 640px;padding-top: 50px;">
+<div class="card"  style="width: 50%;height: auto;background-color: #80b3ff;margin-left: 25%;">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="input-group">
+                   <div class="form-group col-md-5"> 
+                        <a [matBadge] = "num" matBadgePosition = "before" matBadgeColor = "primary" 
+                            class="btn" style="font-size: 35px;" routerLink="/notifications">
+                            <i class="fas fa-bell"></i>
+                        </a>                   
+                    </div>
+                    <div class="form-group col-md-5">
+                        <button routerLink="/accueil"    mat-fab color="primary">
+                            <mat-icon class="icon">home</mat-icon>
+                        </button>
+                    </div>
+                    <div class="form-group col-md-2 float-right">
+                        <a type="submit" class="btn" style="font-size: 35px;" routerLink="/logout" ><strong><i color="primary" class="fas fa-sign-out-alt"></i></strong></a>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 80px;"></div>
+            <div class="card" style="margin-top: 20px;margin-bottom: 10px;" *ngFor="let n of notifications.content">
+                <div class="card-header bg-info">
+                    <strong style="color:black">{{n.typeNotification}}</strong>
+                    <span style="color:black" class="badge float-right">{{n.dateNotification|date}}</span>
+                </div>
+                <div class="card-body">
+                    {{n.message}}
+                    <hr>
+                    <i>Du : Ministère de la santé</i>
+                </div>
+            </div>
+        </div>      
+        <ul *ngIf="pages" class="nav nav-pills ">
+            <li  *ngFor="let p of pages;let i=index" class="nav-item clickable">
+                 <a class="nav-link bg-info" style="margin-left: 5px;"  data-toggle="pill" (click)="onPageNotification(i)" >{{i}}</a>
+          </li>
+      </ul> 
+    </div> 
+</div>

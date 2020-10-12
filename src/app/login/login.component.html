@@ -1,0 +1,50 @@
+<div style="background-image: url(../../assets/img/covid.jpg) ;width: 100%;height: 640px;padding-top: 50px;">
+    <div class="card"  style="width: 50%;height: auto;background-color: #80b3ff;margin-left: 25%;">
+        <div>
+            <div class="col-md-9 float-left">
+                <button routerLink="/"    mat-fab color="primary">
+                <mat-icon class="icon">home</mat-icon>
+                </button>
+            </div>
+            <div class="col-md-2 float-right" style="margin-top: 10px;">
+              <img src="../../assets/img/virus.png"  alt="virus" width="70px" height="70px">
+            </div>
+        </div>
+
+    
+          <div class="card-body">
+            
+            <div class="col-md-6" style="margin-left: 25%;margin-top: 20px;">
+                <mat-toolbar color="primary" >
+                    <span class="fill-remaining-space" > <p style="text-align: center;margin-left: 60px;">Connexion</p></span>
+                  </mat-toolbar>
+                <hr>
+                <form name="form" [formGroup]="form" style="margin-left: 10%;"> 
+                    <mat-form-field appearance="fill">
+                        <mat-label>ID</mat-label>
+                        <mat-icon matSuffix>account_circle</mat-icon>
+                        <input matInput placeholder="ID" type="text" name="id" autocomplete="off" [(ngModel)]="id"
+                        formControlName="id" [ngClass]="{'is-invalid':form.get('id').touched && form.get('id').invalid}"  required />
+                        <div class="invalid-feedback">
+                            <div>ID est ogligatoire</div>
+                        </div>
+                      </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Password</mat-label>
+                        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        <input matInput placeholder="Password"  type="password" name="password" placeholder="password" autocomplete="off" [(ngModel)]="password"
+                        formControlName="password" [ngClass]="{'is-invalid':form.get('password').touched && form.get('password').invalid}" [type]="hide ? 'password' : 'text'" required />
+                        <div class="invalid-feedback">
+                            <div>Password est ogligatoire</div>
+                        </div>
+                      </mat-form-field>
+                       
+                    <div class="wrapper">
+                        <button  mat-raised-button color="primary" type="submit" [disabled]="!form.valid" class="col-md-6" (click)="onLogin()" style="text-align: center;"><strong>Se connecter</strong></button><br><br>
+                    </div>
+
+                </form>
+            </div>
+        </div> 
+    </div>
+</div>

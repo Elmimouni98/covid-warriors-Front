@@ -1,0 +1,61 @@
+<div style="background-image: url(../../assets/img/covid.jpg) ;width: 100%;height: 900px;padding-top: 50px;">
+    <div class="card"  style="width: 50%;height: auto;background-color: #80b3ff;margin-left: 25%;">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12">
+                    <div class="input-group">
+                        <div class="col-md-9 float-left">
+                            <button routerLink="/AccueilM"    mat-fab color="primary">
+                            <mat-icon class="icon">home</mat-icon>
+                            </button>
+                        </div>
+                        <div class="form-group col-md-2 float-right" style="margin-top: 10px;">
+                            <a mat-fab color="primary" type="submit"  style="margin-top:-10px;" class="btn"  routerLink="/logout" ><strong><i style="font-size: 20px;" class="fas fa-sign-out-alt"></i></strong></a>
+                        </div>
+                    </div>
+                </div>
+            <div style="margin-left: 38%;margin-top: -30px;">
+                <img src="../../assets/img/CONTACT.png"  alt="logo" width="150px" height="150px"><br>
+            </div>
+            <hr>
+                <form #f="ngForm" name="form" class="form-group" style="margin-top: 30px;"> 
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="input-group">
+                               <div class="form-group col-md-6"> 
+                                    <input type="text" name="id" ngModel class="form-control" placeholder="CIN ou Username"/>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <button mat-raised-button color="primary" type="submit" (click)="onChercher(f.value)"><i class="fas fa-search" ></i></button>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <button mat-raised-button color="primary" (click)="recommanderAll()"><i class="fas fa-bell"></i> Notifier le tous</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <p></p>
+                <table *ngIf="contacts" class="table table-bordered">
+                    <tr style="background-color: #3385ff">
+                        <th> ID</th><th><i class="far fa-calendar-alt"></i> Date</th>
+                        <th> Ville</th><th> tel</th><th> Notifier</th>
+                        
+                    </tr>
+                    <tr *ngFor="let c of contacts.content" style="background-color: #99c2ff">
+                        <td>{{c.citoyen.id}}</td>
+                        <td>{{c.dateContact}}</td>
+                        <td>{{c.citoyen.ville}}</td>
+                        <td>{{c.citoyen.tel}}</td>
+                        <td><a class="btn" style="font-size: 20px;" (click)="recommander(c.ministere.id,c.citoyen.id)" ><i color="primary" class="fas fa-bell"></i></a></td>
+                    </tr>
+                </table>
+                
+                <ul *ngIf="pages" class="nav nav-pills ">
+                    <li  *ngFor="let p of pages;let i=index" class="nav-item clickable">
+                         <a class="nav-link" style="margin-left: 5px;background-color: #e6f0ff"  data-toggle="pill" (click)="onPageContact(i)" >{{i}}</a>
+                  </li>
+              </ul>
+        </div> 
+    </div>
+</div>

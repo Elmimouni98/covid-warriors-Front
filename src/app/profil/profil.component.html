@@ -1,0 +1,44 @@
+<div style="background-image: url(../../assets/img/covid.jpg) ;width: 100%;height: 800px;padding-top: 50px;">
+
+    <div class="card"  style="width: 50%;height: auto;background-color: #80b3ff;margin-left: 25%;">
+        <div class="card-body">
+            <form class="float-left"> 
+                <button routerLink="/accueil"    mat-fab color="primary">
+                    <mat-icon class="icon">home</mat-icon>
+                    </button>
+            </form>
+                <form class="float-right"> 
+                    <div class="wrapper">
+                        <a type="submit" class="btn" style="font-size: 40px;margin-top: -10px;" routerLink="/logout" ><strong><i color="primary" class="fas fa-sign-out-alt"></i></strong></a>
+                    </div>
+                </form>
+                <form  style="margin-left: 40%;" > 
+                    <div class="wrapper">
+                        <button  mat-raised-button color="primary" style="margin-top: 10px;" type="submit" routerLink="/consignes" ><strong>Consignes</strong></button>
+                    </div>
+                </form><br><hr>
+                <div style="margin-left: 25%;">
+                   <mat-card class="example-card">
+                    <mat-card-header>
+                    <mat-icon>more_vert</mat-icon>
+                        <div mat-card-avatar class="example-header-image"></div>
+                        <mat-card-title>{{nom}} {{prenom}}</mat-card-title><br>
+                        <mat-card-subtitle>Ville : {{ville}}</mat-card-subtitle>
+                        <mat-card-subtitle>Adresse : {{adresse}}</mat-card-subtitle>
+                        <mat-card-subtitle>Role : {{role}}</mat-card-subtitle>
+                    </mat-card-header>
+                </mat-card>
+                </div>
+                <hr>
+                <img src="../../assets/img/famille.png" style="margin-top: 10px;" alt="virus" width="120px" height="120px">
+
+                <img src="../../assets/img/1 (2).png" style="margin-top: 10px;margin-left: 30px;" alt="virus" width="120px" height="120px">
+                <img src="../../assets/img/hand.png" style="margin-top: 10px;margin-left: 30px;" alt="virus" width="120px" height="120px">
+                <img src="../../assets/img/1 (1).png" style="margin-top: 10px;margin-left: 30px;" alt="virus" width="120px" height="120px">
+
+
+
+   
+        </div> 
+    </div>
+</div>
